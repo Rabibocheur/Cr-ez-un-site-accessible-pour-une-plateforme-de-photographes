@@ -3,6 +3,7 @@
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
+  margin-bottom: 50px;
 }
 
 header {
@@ -45,7 +46,7 @@ h1 {
   color: #d3573c;
   font-size: 36px;
   text-align: center;
-  margin-bottom: 0;
+  margin: 0;
   font-weight: 400;
 }
 

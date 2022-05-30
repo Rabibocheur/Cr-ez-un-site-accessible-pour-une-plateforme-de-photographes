@@ -5,18 +5,62 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/7a0f0d6266.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" alt="Fisheye Home page">
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
     </header>
 
     <main id="main">
       <div class="photograph-header">
+        <div class="photograph-description">
+          <h1 class="photograph-name"></h1>
+          <p class="photograph-text">
+            <span class="photograph-text--country"></span>
+            <span class="photograph-text--tagline"></span>
+          </p>
+        </div>
+
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <img class="photograph-image" src="" alt="" />
       </div>
+
+      <div class="media-sortby">
+        <label for="sortby">Trier par</label>
+        <select name="sortby" id="sortby">
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+          <option value="popularity">Popularité</option>
+        </select>
+      </div>
+
+      <div class="photographer-media"></div>
+
+      <aside class="photograph-infos">
+        <div class="photograph-likes">
+          <span class="photograph-total-likes"></span>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="photograph-price"></div>
+      </aside>
     </main>
+
+    <div class="lightbox">
+      <button class="lightbox_close">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="lightbox_right">
+        <i class="fas fa-angle-right"></i>
+      </button>
+      <button class="lightbox_left">
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <div class="lightbox_modal"></div>
+    </div>
 
     <div id="contact_modal">
       <div class="modal">
@@ -34,6 +78,8 @@
         </form>
       </div>
     </div>
-    <script src="/scripts/utils/contactForm.js"></script>
+
+    <script type="module" src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

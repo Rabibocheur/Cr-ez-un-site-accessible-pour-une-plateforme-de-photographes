@@ -66,7 +66,7 @@ export const mediaFactory = (data) => {
     if (video != undefined) mediaLightbox.controls = true;
     mediaLightbox.setAttribute("class", "media_modal");
     mediaLightbox.dataset.id = id;
-    mediaLightbox.dataset.title = title;
+    mediaLightbox.alt = title;
     mediaLightbox.style.display = "none";
 
     return mediaLightbox;

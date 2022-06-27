@@ -57,6 +57,7 @@ const mediaSortBy = () => {
       a.dataset.title.localeCompare(b.dataset.title)
     );
   }
+
   const lightboxModal = document.querySelector(".lightbox_modal");
   const allMediaModal = document.querySelectorAll(".media_modal");
 

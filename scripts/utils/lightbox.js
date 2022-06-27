@@ -18,8 +18,9 @@ const gestionLightbox = (mediaId) => {
 
   lightbox.style.display = "flex";
 
-  for (const media of allMediaModal)
+  for (const media of allMediaModal) {
     media.dataset.id == mediaId ? (media.style.display = "block") : null;
+  }
 
   document.onkeyup = navigateWithKeyLigthbox;
 

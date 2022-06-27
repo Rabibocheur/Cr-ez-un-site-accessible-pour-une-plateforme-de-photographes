@@ -49,14 +49,14 @@
       </aside>
     </main>
 
-    <div class="lightbox">
-      <button class="lightbox_close">
+    <div class="lightbox" role="dialog" aria-describedby="lightbox" aria-hidden="false">
+      <button class="lightbox_close" aria-label="Fermer">
         <i class="fas fa-times"></i>
       </button>
-      <button class="lightbox_right">
+      <button class="lightbox_right" aria-label="Prochaine">
         <i class="fas fa-angle-right"></i>
       </button>
-      <button class="lightbox_left">
+      <button class="lightbox_left" aria-label="Précedente">
         <i class="fas fa-angle-left"></i>
       </button>
       <div class="lightbox_modal"></div>
@@ -66,15 +66,29 @@
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <button class="contact_close" aria-label="fermer">
+            <img src="assets/icons/close.svg" onclick="closeModal()" />
+          </button>
         </header>
 
         <form>
           <div>
-            <label>Prénom</label>
-            <input />
+            <label for="firstname">Prénom</label>
+            <input name="firstname" id="firstname" />
           </div>
-          <button class="contact_button">Envoyer</button>
+          <div>
+            <label for="lastname">Nom</label>
+            <input name="lastname" id="lastname" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input name="email" id="email" />
+          </div>
+          <div>
+            <label for="message">Votre message</label>
+            <textarea name="message" id="message"></textarea>
+          </div>
+          <button class="contact_button" aria-label="envoyer">Envoyer</button>
         </form>
       </div>
     </div>

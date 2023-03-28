@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/7a0f0d6266.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a7ed2c2d70.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -29,13 +33,22 @@
         <img class="photograph-image" src="" alt="" />
       </div>
 
-      <div class="media-sortby">
-        <label for="sortby">Trier par</label>
-        <select name="sortby" id="sortby">
-          <option value="date">Date</option>
-          <option value="title">Titre</option>
-          <option value="popularity">Popularité</option>
-        </select>
+      <div id="media-listbox">
+        <label for="content-listbox" id="label-listbox">Trier par</label>
+        <div
+          role="listbox"
+          id="content-listbox"
+          data-open="false"
+          tabindex="0"
+          aria-labelledby="label-listbox"
+        >
+          <i class="fa-solid listbox-chevron fa-chevron-down"></i>
+          <div role="option" class="listbox" data-value="popularity" aria-selected="true">
+            Popularité
+          </div>
+          <div role="option" class="listbox" data-value="date" aria-selected="false">Date</div>
+          <div role="option" class="listbox" data-value="title" aria-selected="false">Titre</div>
+        </div>
       </div>
 
       <div class="photographer-media"></div>
@@ -51,13 +64,13 @@
 
     <div class="lightbox" role="dialog" aria-describedby="lightbox" aria-hidden="false">
       <button class="lightbox_close" aria-label="Fermer">
-        <i class="fas fa-times"></i>
+        <span class="material-symbols-outlined"> close </span>
       </button>
       <button class="lightbox_right" aria-label="Prochaine">
-        <i class="fas fa-angle-right"></i>
+        <span class="material-symbols-outlined"> navigate_next </span>
       </button>
       <button class="lightbox_left" aria-label="Précedente">
-        <i class="fas fa-angle-left"></i>
+        <span class="material-symbols-outlined"> chevron_left </span>
       </button>
       <div class="lightbox_modal"></div>
     </div>

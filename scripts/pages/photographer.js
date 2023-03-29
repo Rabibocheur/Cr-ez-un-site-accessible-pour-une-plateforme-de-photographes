@@ -1,7 +1,6 @@
 import { photographerFactory } from "../factories/photographer.js";
 import { mediaFactory } from "../factories/media.js";
 import { initLightbox } from "../utils/lightbox.js";
-import { initListBox } from "../utils/listbox.js";
 
 const getPhotographers = async () => {
   const getUrl = window.location.search;
@@ -41,9 +40,7 @@ const displayData = (photographer, photographerMedia) => {
 const init = async () => {
   const { photographer, media } = await getPhotographers();
   displayData(photographer, media);
-
   initLightbox();
-  initListBox();
 };
 
 init();

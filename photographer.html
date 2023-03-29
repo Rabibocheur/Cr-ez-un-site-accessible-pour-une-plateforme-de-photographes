@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -14,24 +14,24 @@
   </head>
   <body>
     <header>
-      <a href="index.html" alt="Fisheye Home page">
-        <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" title="lien page acceuil" alt="Fisheye Home page">
+        <img src="assets/images/logo.png" alt="Logo Fisheye" class="logo" />
       </a>
     </header>
 
     <main id="main">
-      <div class="photograph-header">
-        <div class="photograph-description">
+      <header class="photograph-header">
+        <section class="photograph-description">
           <h1 class="photograph-name"></h1>
           <p class="photograph-text">
             <span class="photograph-text--country"></span>
             <span class="photograph-text--tagline"></span>
           </p>
-        </div>
+        </section>
 
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img class="photograph-image" src="" alt="" />
-      </div>
+        <button class="contact_me style_button">Contactez-moi</button>
+        <img class="photograph-image" src="" alt="photo de profile du photographe" />
+      </header>
 
       <div id="media-listbox">
         <label for="content-listbox" id="label-listbox">Trier par</label>
@@ -41,9 +41,16 @@
           data-open="false"
           tabindex="0"
           aria-labelledby="label-listbox"
+          aria-activedescendant="selected-item"
         >
-          <i class="fa-solid listbox-chevron fa-chevron-down"></i>
-          <div role="option" class="listbox" data-value="popularity" aria-selected="true">
+          <em class="fa-solid listbox-chevron fa-chevron-down"></em>
+          <div
+            role="option"
+            class="listbox"
+            data-value="popularity"
+            id="selected-item"
+            aria-selected="true"
+          >
             Popularité
           </div>
           <div role="option" class="listbox" data-value="date" aria-selected="false">Date</div>
@@ -56,7 +63,7 @@
       <aside class="photograph-infos">
         <div class="photograph-likes">
           <span class="photograph-total-likes"></span>
-          <i class="fa-solid fa-heart"></i>
+          <em class="fa-solid fa-heart"></em>
         </div>
         <div class="photograph-price"></div>
       </aside>
@@ -76,37 +83,69 @@
     </div>
 
     <div id="contact_modal">
-      <div class="modal">
+      <div class="modal" tabindex="0">
         <header>
           <h2>Contactez-moi</h2>
           <button class="contact_close" aria-label="fermer">
-            <img src="assets/icons/close.svg" onclick="closeModal()" />
+            <span class="material-symbols-outlined"> close </span>
           </button>
         </header>
 
-        <form>
+        <form id="form_contact">
           <div>
             <label for="firstname">Prénom</label>
-            <input name="firstname" id="firstname" />
+            <input
+              class="form_input"
+              name="firstname"
+              type="text"
+              id="firstname"
+              data-error-visible="false"
+            />
           </div>
           <div>
             <label for="lastname">Nom</label>
-            <input name="lastname" id="lastname" />
+            <input
+              class="form_input"
+              name="lastname"
+              type="text"
+              id="lastname"
+              data-error-visible="false"
+            />
           </div>
           <div>
             <label for="email">Email</label>
-            <input name="email" id="email" />
+            <input
+              class="form_input"
+              name="email"
+              type="email"
+              id="email"
+              data-error-visible="false"
+            />
           </div>
           <div>
             <label for="message">Votre message</label>
-            <textarea name="message" id="message"></textarea>
+            <textarea
+              class="form_input"
+              name="message"
+              id="message"
+              data-error-visible="false"
+            ></textarea>
           </div>
-          <button class="contact_button" aria-label="envoyer">Envoyer</button>
+          <button
+            class="submit_contact style_button"
+            type="submit"
+            name="submit"
+            aria-label="envoyer"
+          >
+            Envoyer
+          </button>
         </form>
       </div>
     </div>
 
     <script type="module" src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
+    <script src="scripts/utils/listbox.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

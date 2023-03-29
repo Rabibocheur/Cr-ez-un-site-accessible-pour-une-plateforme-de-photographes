@@ -1,5 +1,6 @@
 export const initLightbox = () => {
   const mediaImage = document.querySelectorAll(".media-image");
+
   mediaImage.forEach((media) => {
     const mediaId = media.parentElement.dataset.id;
     media.addEventListener("click", () => gestionLightbox(mediaId));

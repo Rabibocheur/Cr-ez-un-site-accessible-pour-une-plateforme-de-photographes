@@ -1,16 +1,6 @@
 const contentListbox = document.getElementById("content-listbox");
 const options = document.querySelectorAll(".listbox");
 
-export const initListBox = () => {
-  contentListbox.addEventListener("click", () => gestionListBox());
-
-  contentListbox.addEventListener("keydown", (event) => {
-    if (event.code === "Enter") gestionListBox();
-  });
-
-  mediaSortBy("popularity");
-};
-
 const gestionListBox = () => {
   contentListbox.dataset.open = contentListbox.dataset.open === "false" ? "true" : "false";
   contentListbox.addEventListener("keydown", (event) => tabOptionsListBox(event));
@@ -44,8 +34,12 @@ const eventOptionsListBox = () => {
 };
 
 const selectOptionListBox = (option) => {
-  options.forEach((opt) => opt.setAttribute("aria-selected", "false"));
+  options.forEach((opt) => {
+    opt.setAttribute("aria-selected", "false");
+    opt.removeAttribute("id");
+  });
   option.setAttribute("aria-selected", "true");
+  option.setAttribute("id", "selected-item");
   option.parentNode.insertBefore(option, option.parentNode.firstChild);
   mediaSortBy(option.dataset.value);
 };
@@ -87,3 +81,15 @@ const mediaSortBy = (value) => {
   articlesMedia.forEach((article) => photographerMediaDOM.appendChild(article));
   newMediaModal.forEach((media) => lightboxModal.appendChild(media));
 };
+
+const initListBox = () => {
+  contentListbox.addEventListener("click", () => gestionListBox());
+
+  contentListbox.addEventListener("keydown", (event) => {
+    if (event.code === "Enter") gestionListBox();
+  });
+
+  mediaSortBy("popularity");
+};
+
+initListBox();

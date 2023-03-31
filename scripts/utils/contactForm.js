@@ -12,7 +12,6 @@ const closeModal = () => {
   modal.style.display = "none";
 };
 
-// form verification
 const formVerification = () => {
   const form = document.getElementById("form_contact");
   const formInput = document.querySelectorAll(".form_input");
@@ -22,16 +21,18 @@ const formVerification = () => {
     input.addEventListener("change", () => checkInput(input));
   });
 
+  let inputValues = [];
+
   form.addEventListener("submit", (e) => {
-    console.log(e);
     e.preventDefault();
-    let isValid = true;
     for (let input of formInput) {
+      inputValues.push(input.value);
       if (!checkInput(input)) {
-        isValid = false;
+        inputValues = [];
+        throw "Validation des champs sont incorrects";
       }
     }
-    formValidation(isValid);
+    formValidation(inputValues);
   });
 };
 
@@ -57,8 +58,8 @@ const checkInput = (input) => {
   return isValid;
 };
 
-const formValidation = (isValid) => {
-  console.log(isValid);
+const formValidation = (inputValues) => {
+  console.log(inputValues);
 };
 
 const tabFocusFormContact = (event) => {

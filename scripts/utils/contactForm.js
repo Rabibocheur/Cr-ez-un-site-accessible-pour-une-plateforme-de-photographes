@@ -1,9 +1,7 @@
+import { getProfilePhotograph } from "../api/getAPI.js";
+
 const modal = document.getElementById("contact_modal");
 const modalContent = document.querySelector(".modal");
-
-const getUrl = window.location.search;
-const searchParams = new URLSearchParams(getUrl);
-const photographId = parseInt(searchParams.get("id"));
 
 const displayModal = () => {
   modal.style.display = "block";
@@ -73,7 +71,12 @@ const tabFocusFormContact = (event) => {
   }
 };
 
-const initContactForm = () => {
+const initContactForm = async () => {
+  const { photographer } = await getProfilePhotograph();
+
+  const modalTitle = document.querySelector(".modal-title");
+  modalTitle.innerHTML += "<br/>" + photographer[0].name;
+
   const btnDisplayModal = document.querySelector(".contact_me");
   const btnCloseModal = document.querySelector(".contact_close");
 

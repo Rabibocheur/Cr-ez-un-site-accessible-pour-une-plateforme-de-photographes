@@ -1,20 +1,7 @@
+import { getProfilePhotograph } from "../api/getAPI.js";
 import { photographerFactory } from "../factories/photographer.js";
 import { mediaFactory } from "../factories/media.js";
 import { initLightbox } from "../utils/lightbox.js";
-
-const getPhotographers = async () => {
-  const getUrl = window.location.search;
-  const searchParams = new URLSearchParams(getUrl);
-  const photographId = parseInt(searchParams.get("id"));
-
-  const response = await fetch("./data/photographers.json");
-  const data = await response.json();
-
-  const photographer = data.photographers.filter((f) => f.id === photographId);
-  const media = data.media.filter((f) => f.photographerId === photographId);
-
-  return { photographer, media };
-};
 
 const displayData = (photographer, photographerMedia) => {
   const photographerModel = photographerFactory(photographer[0]);
@@ -38,7 +25,7 @@ const displayData = (photographer, photographerMedia) => {
 };
 
 const init = async () => {
-  const { photographer, media } = await getPhotographers();
+  const { photographer, media } = await getProfilePhotograph();
   displayData(photographer, media);
   initLightbox();
 };

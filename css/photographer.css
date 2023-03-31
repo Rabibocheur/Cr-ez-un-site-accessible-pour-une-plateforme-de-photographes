@@ -274,16 +274,16 @@
 .modal header {
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .modal header img {
   cursor: pointer;
 }
 
-.modal header h2 {
+.modal-title {
   font-size: 50px;
   font-weight: normal;
-  text-align: center;
 }
 
 .contact_close {

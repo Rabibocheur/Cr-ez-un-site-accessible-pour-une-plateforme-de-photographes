@@ -10,9 +10,9 @@ const displayData = async (photographers) => {
     photographersSection.appendChild(userCardDOM);
   });
 };
+
 const init = async () => {
   const { photographers } = await getPhotographers();
-  console.log(photographers);
   displayData(photographers);
 };
 
